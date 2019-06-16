@@ -1,11 +1,11 @@
 # Site settings
-author: lieby weintraub
-title: 
+author: Lieby Weintraub
+title: Sinatra Project 
 header-img: img/home-bg.png
 email: liebahinda@gmail.com
-copyright_name: lieby weintraub
+copyright_name: Lieby Weintraub
 description: > # this means to ignore newlines until "baseurl:"
-  
+  Recipe App
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  frumgirlwhocodes
