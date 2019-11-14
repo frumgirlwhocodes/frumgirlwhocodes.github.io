@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "My Recipe App using Javascript front end "
-date:       2019-11-14 22:53:56 +0000
+date:       2019-11-14 17:53:56 -0500
 permalink:  my_recipe_app_using_javascript_front_end
 ---
 
