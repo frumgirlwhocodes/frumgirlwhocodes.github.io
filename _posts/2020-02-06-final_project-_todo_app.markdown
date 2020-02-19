@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Final Project- Todo App"
-date:       2020-02-06 22:53:58 +0000
+date:       2020-02-06 17:53:59 -0500
 permalink:  final_project-_todo_app
 ---
 
@@ -16,20 +16,25 @@ Most of he client-side application was in the React-redux app. When you open up 
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+```
 
 const NavBar = () => {
   return (
     <div className= "navbar"> 
-    <NavLink to="/">Your List </NavLink><br></br>
-     <NavLink to="/about">About</NavLink><br></br>
+    <NavLink to="/">Your List </NavLink>
+     <NavLink to="/about">About</NavLink>````
    <NavLink to ="/help"> Help </NavLink>
     </div>
   );
 };
 
 export default NavBar;
+```
 
-and in index.js: 
+and in index.js render method: 
+
+```
+
 ReactDOM.render(
     <Provider store ={store}>
 <Router>
@@ -44,6 +49,7 @@ ReactDOM.render(
       </Router>    
 </Provider>
 ,document.getElementById('root'));
+```
 
 The main page, your list, contains the form to create a todo, a checkbox to checkoff a todo, and a button to delete a todo.  
 
@@ -51,8 +57,9 @@ The about page containes the information about the applicaton
 
 The Help page gives you all the instructions and contact information that you would need 
 
-I created a form that allows you to put in a title and date. i first created a action that will make a request using axios to post the todo i created to the backend. I connected the create to the store i created in the index.js file using MapDispatchToProps function. 
+I created a form that allows you to put in a title and date. i first created a action that will make a request using axios to post the todo i created to the backend. I connected the create action to the store: 
 
+```
  export function addTodo(id, title, date ) {
     return { type: ADD_TODO, id: id, title: title, date: date}
   }
@@ -71,7 +78,9 @@ I created a form that allows you to put in a title and date. i first created a a
 		}    
   }
   }
-	 and my form ia as such: 
+	 and my form is as such: 
+```
+```
 	
 import React, { Component } from 'react'
 import { createTodo} from '../actions/todosActions'
@@ -143,11 +152,14 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(null, mapDispatchToProps)(CreateTodo);
+```
 
 after you create your todos, there is a list of them displayed on the your list page. On the list you can view, update and delete it as you would like. 
 
-In a container i placed all the code responsible for handling the state and props
-mport React, { Component } from 'react'
+In a container component, I placed all the code responsible for handling the state and props:
+
+```
+import React, { Component } from 'react'
 import { getTodos} from '../actions/todosActions'
 import {deleteTodo} from '../actions/todosActions'
 import {updateTodo} from '../actions/todosActions'
@@ -195,9 +207,11 @@ const mapStateToProps = (state) => {
   }
   
   export default connect(mapStateToProps, mapDispatchToProps)(TodosContainer)
+```
 	
-	in this container i implamented the gettodos, updatetodos, and deletetodos actions that i created
+	in this container I implamented the gettodos, updatetodos, and deletetodos actions that I created: 
 	 
+```
 
 
 export function loadTodos(todos) {
@@ -242,9 +256,11 @@ export const  updateTodo = (params) => {
     })
     .catch(error => console.log(error))
   }
+```
 
 
-the loadtodos request from the backend all the instances of todos and then it gets displayed. The components that took care of displaying the data were as such:
+the loadtodos request from the backend all the instances of todos from the database, which takes care of the perstance of the data,  and then it gets displayed. The components that took care of displaying the data were as such:
+```
 
 import React, {Component}  from 'react'
 import Todo from '../components/Todo'
@@ -306,6 +322,7 @@ render(){
 
 
 export default Todo;
+```
 
 If you realize, the component, todolist, is put on the render function of the container component so that doing so i was able to create all the actions as props using the mapDispatchToProps function in the todos contianer. 
 
